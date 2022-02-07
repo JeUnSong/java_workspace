@@ -4,15 +4,12 @@ package Assignment6_2;
 //프로그램을 작성하시오. 계속 반복하다가 "exit"를 입력하면 종료.
 
 public class Student {
-	String name;
-	String subject;
+	String name,subject;
 	double score;
+	
+	public Student( ) {}
 
-	public Student(String name) {
-		this.name = name;
-	}
-	public  Student(String s, double c) {
-		subject = s;
-		score = c;
+	public double ave() {
+		return (score+score+score)/3;
 	}
 }

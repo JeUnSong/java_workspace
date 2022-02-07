@@ -5,27 +5,38 @@ import java.util.Scanner;
 public class StudentApp {
 
 	public static void main(String[] args) {
+		Student st = new Student();
 		Scanner scanner = new Scanner(System.in);
 		
 		
-		Student[][] Student = new Student[3][3];
+		Student kor = new Student();
+		kor.name = "국어";
+		Student eng = new Student();
+		eng.name = "영어";
+		Student mat = new Student();
+		mat.name = "국어";
 		
 		System.out.print("이름을 입력하세요 : ");
-		String name = scanner.next();
+		st.name = scanner.next();
 		
-		System.out.print("국어 점수를 입력하세요: ");
-		int score = scanner.nextInt();
+		while(true ) {
+		System.out.print(kor.name + " 점수를 입력하세요: ");
+		st.score = scanner.nextInt();
 		
-		System.out.print("영어 점수를 입력하세요: ");
-		//int score = scanner.nextInt();
+		System.out.print(eng.name + " 점수를 입력하세요: ");
+		st.score = scanner.nextInt();
 		
-		System.out.print("수학 점수를 입력하세요: ");
-		//int score = scanner.nextInt();
+		System.out.print(mat.name + " 점수를 입력하세요: ");
+		st.score = scanner.nextInt();
 		
-//		Student name = new Student("송제운");
-//		Student korean = new Student("국어" + 80);
-//		Student english = new Student("영어" + 50);
-//		Student math = new Student("수학" + 30);
+		System.out.println("모두 입력했으면 exit를 입력하세요.");
+		System.out.print(">>");
+		String text = scanner.next();
+		
+		System.out.println(st.name + "님의 평균 점수는 " + st.ave());
+		if(text.equals("exit"))
+		break;
+		}
 
 	}
 
