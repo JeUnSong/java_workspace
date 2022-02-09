@@ -1,4 +1,4 @@
-package dd;
+package assignment8_1;
 //1. P253의 예제5-1에서 Point클래스의 showPoint()를 추상메서드로 변경해서
 //Point클래스를 추상클래스로 바꾸어서 코딩해보기
 abstract class Pointxy {

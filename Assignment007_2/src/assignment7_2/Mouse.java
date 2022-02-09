@@ -1,4 +1,4 @@
-package Assignment7_2;
+package assignment7_2;
 //2. 마우스 클래스를 생성하시오.
 //왼쪽버튼, 오른쪽버튼, mouseMove()
 public class Mouse {

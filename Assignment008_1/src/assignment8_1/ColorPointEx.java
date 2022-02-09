@@ -1,4 +1,4 @@
-package dd;
+package assignment8_1;
 
 
 public class ColorPointEx {
