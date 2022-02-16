@@ -14,7 +14,7 @@ public class ChartEx extends JFrame {
 		panel.setBackground(Color.GRAY);
 		this.setContentPane(panel); // panel을 컨테이너로 설정
 		
-		this.setSize(600, 500);
+		this.setSize(1000, 800);
 		this.setVisible(true);
 	}
 	
@@ -33,26 +33,44 @@ public class ChartEx extends JFrame {
 			
 			int gap2=50;
 			
-			g.drawString("1/4분기", 40, 60);
-			g.fillRect(100, 50, q1, height);
+			g.drawString("1/4분기", 40, 30);
+			g.fillRect(100, 20, q1, height);
 			
-			g.drawString("2/4분기", 40, 60+(height+gep));
-			g.fillRect(100, 50+height+gep, q2, height);
+			g.drawString("2/4분기", 40, 30+(height+gep));
+			g.fillRect(100, 20+height+gep, q2, height);
 			
-			g.drawString("3/4분기", 40, 60+(height+gep)*2);
-			g.fillRect(100, 50+(height+gep)*2, q3, height);
+			g.drawString("3/4분기", 40, 30+(height+gep)*2);
+			g.fillRect(100, 20+(height+gep)*2, q3, height);
 			
-			g.drawString("3/4분기", 40, 60+(height+gep)*3);
-			g.fillRect(100, 50+(height+gep)*3, q4, height);
+			g.drawString("3/4분기", 40, 30+(height+gep)*3);
+			g.fillRect(100, 20+(height+gep)*3, q4, height);
+			
+			g.setColor(Color.RED);
+			g.drawLine(100, 400, 100, 180);
+			g.drawString("100억", 60, 350);
+			g.drawString("150억", 60, 300);
+			g.drawString("200억", 60, 250);
+			g.drawString("270억", 60, 180);
+			
+			g.setColor(Color.RED);
+			g.drawLine(100, 400, 300, 400);
+			g.drawString("1/4분기", 130, 420);
+			g.drawString("2/4분기", 180, 420);
+			g.drawString("3/4분기", 230, 420);
+			g.drawString("4/4분기", 280, 420);
 			
 			
+			g.setColor(Color.BLUE);
 			g.drawLine(100, 400, 100+gap2, 450-q1);
-			
 			g.drawLine(100+50, 450-q1, 100+gap2*2, 450-q2);
-
 			g.drawLine(100+gap2*2, 450-q2, 100+gap2*3, 450-q3);
-			
 			g.drawLine(100+gap2*3, 450-q3, 100+gap2*4, 450-q4);
+			
+			
+			
+			
+			
+			
 			
 			g.setColor(Color.RED);
 			g.fillArc(500, 300, 300, 300, 0, 110);
@@ -62,6 +80,13 @@ public class ChartEx extends JFrame {
 			g.fillArc(500, 300, 300, 300, 110+85, 45);
 			g.setColor(Color.YELLOW);
 			g.fillArc(500, 300, 300, 300, 110+85+45, 120);
+			
+			g.setColor(Color.BLACK);
+			g.drawString("1/4분기 / 100억", 660, 390);
+			g.drawString("2/4분기 / 150억", 530, 420);
+			g.drawString("3/4분기 / 150억", 520, 510);
+			g.drawString("4/4분기 / 150억", 650, 530);
+			
 		}
 		
 	}

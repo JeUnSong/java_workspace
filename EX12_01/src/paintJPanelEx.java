@@ -10,7 +10,7 @@ public class paintJPanelEx extends JFrame {
 private MyPanel panel = new MyPanel();
 	
 	public paintJPanelEx() {
-		this.setTitle("fillXXX 사용 예제");
+		this.setTitle("JPanel의 paintComponent() 예제");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setContentPane(panel);
 		

@@ -25,9 +25,9 @@ private MyPanel panel = new MyPanel();
 			g.setColor(Color.MAGENTA);
 			g.fillArc(10, 190, 50, 50, 0, 270);
 			g.setColor(Color.ORANGE);
-			int [] x = {30,10,30,60,60};
-			int [] y = {250,275,300,275,276};
-			g.fillPolygon(x, y, 5);
+			int [] x = {30,10,30,60};
+			int [] y = {250,275,300,275};
+			g.fillPolygon(x, y, 4);
 			}
 		}
 	
