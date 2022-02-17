@@ -23,7 +23,6 @@ public class Q3 extends JFrame {
 	JLabel lb3 = (new JLabel("strawberry"));
 	JLabel lb4 = (new JLabel("prune"));
 	
-	
 	public Q3() {
 		this.setTitle("차트");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -48,25 +47,6 @@ public class Q3 extends JFrame {
 		tf3.addActionListener(new MyActionListener());
 		tf4.addActionListener(new MyActionListener());
 		
-		//여기서부터
-		double a = Integer.parseInt(tf1.getText());
-		double c = Integer.parseInt(tf2.getText());
-		double s = Integer.parseInt(tf3.getText());
-		double p = Integer.parseInt(tf4.getText());
-		
-		double all = a+c+s+p;
-                                                                //어떻게 처리하냐 씨발
-		double apple = a/all*100;
-		double cherry = c/all*100;
-		double strawberry = s/all*100;
-		double prune = p/all*100;	
-		
-		//System.out.println ((int)Math.round(apple));
-		//System.out.println((int)Math.round(cherry));
-		//System.out.println((int)Math.round(strawberry));
-		//System.out.println((int)Math.round(prune));
-		// 여기까지 
-		
 		this.setSize(800,800);
 		this.setVisible(true);
 	}
@@ -76,6 +56,8 @@ public class Q3 extends JFrame {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			JTextField t = (JTextField)e.getSource();
+
+			System.out.println(1);
 			
 		   }
 		
@@ -84,7 +66,6 @@ public class Q3 extends JFrame {
 		public void paintComponent(Graphics g) {
 			super.paintComponent(g);
 			
-
 			g.setColor(Color.RED);
 			g.setFont(new Font("Times New Roman",Font.ITALIC,30));
 			g.drawString("apple"+"%", 80, 50);
@@ -101,13 +82,26 @@ public class Q3 extends JFrame {
 			g.setFont(new Font("Times New Roman",Font.ITALIC,30));
 			g.drawString("prune"+"%", 600, 50);
 			
+		
 		}
 	 
 	}
 
 	public static void main(String[] args) {
 		new Q3();
-
 	}
 
 }
+
+//double a = Integer.parseInt(tf1.getText());
+//double c = Integer.parseInt(tf2.getText());
+//double s = Integer.parseInt(tf3.getText());
+//double p = Integer.parseInt(tf4.getText());
+
+
+// double all = a+c+s+p;
+// double apple = a/all*100; 
+// double cherry =c/all*100; 
+// double strawberry = s/all*100; 
+// double prune = p/all*100;
+ 

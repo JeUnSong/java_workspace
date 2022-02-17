@@ -12,7 +12,7 @@ public class CalendarEx {
 		int second = cal.get(Calendar.SECOND);
 		int millisecond = cal.get(Calendar.MILLISECOND);
 		System.out.print(msg + year + "/" + month + "/" + day + "/");
-		
+		String now = cal.get(Calendar.YEAR)+"년"+cal.get(Calendar.DAY_OF_MONTH)+"일"+cal.get(Calendar.HOUR)+"시"+ cal.get(Calendar.MINUTE)+"분"+cal.get(Calendar.SECOND)+"초";
 		switch(dayOfWeek) {
 		case Calendar.SUNDAY : System.out.print("일요일"); break;
 		case Calendar.MONDAY : System.out.print("월요일"); break;

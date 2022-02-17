@@ -5,6 +5,9 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -20,12 +23,32 @@ public class Haksa extends JFrame{
 	JButton btnModify = null; // update - > Update
 	JButton btnRemove = null; // delete - > Delete
 	                          // DB 용어 CRUD
+	
+	JMenuItem menuItem1 = null;// 학생정보
+	
 	public Haksa() {
 		this.setTitle("학사관리");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		this.setLayout(new FlowLayout());
 		
+		JMenuBar mb = new JMenuBar();
+		JMenu menu1 = new JMenu("학생관리");
+		this.menuItem1 = new JMenuItem("학생정보");
+		menu1.add(this.menuItem1);
+		mb.add(menu1);
+		this.setJMenuBar(mb);
+		
+		this.menuItem1.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// 화면 전환
+				System.out.println("학생정보 화면 로딩 ");
+				
+			}
+		});
+		
+
 		this.add(new JLabel("학번 "));
 		this.tfid = new JTextField(20);
 		this.add(tfid);
@@ -84,7 +107,7 @@ public class Haksa extends JFrame{
 		
 		
 		
-		this.setSize(300, 500);
+		this.setSize(300, 530);
 		this.setVisible(true);
 	}
 

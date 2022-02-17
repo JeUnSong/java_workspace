@@ -38,12 +38,12 @@ public class Q1 extends JFrame {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			JButton jb = (JButton)e.getSource();
-			if(jb == btnLeft) {
+			if(jb != btnLeft) {
 				if(index == 0)
 				index = image.length -1;
 				else
 			    index -= 1;
-				
+
 			}else {
 				if (index == image.length -1)
 					index = 0; 
