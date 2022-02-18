@@ -155,6 +155,7 @@
 <item elementID="=PackageEx" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=ChartEx" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=ThreadTest" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=OpenChallenge15" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 </workingSet>
 <workingSet editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1644225131835_7" label="Assignment" name="Assignment">
 <item elementID="=Assignment" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
