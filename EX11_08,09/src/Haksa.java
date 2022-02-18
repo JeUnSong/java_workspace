@@ -8,6 +8,7 @@ import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -101,7 +102,11 @@ public class Haksa extends JFrame{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("삭제");
+				int result =JOptionPane.showConfirmDialog(null, "삭제 하시겠습니까?,","Confirm", JOptionPane.YES_NO_OPTION);
+				if(result == JOptionPane.YES_NO_OPTION) {
+					//삭제처리
+					JOptionPane.showMessageDialog(null, "삭제되었습니다.", "Message", JOptionPane.INFORMATION_MESSAGE);
+				}
 				
 			}});
 		
