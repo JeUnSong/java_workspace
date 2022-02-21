@@ -13,7 +13,7 @@ public class Q1 extends JFrame {
 	private JButton btnLeft = new JButton("<<");
 	private JButton btnRight = new JButton(">>");
 	private JPanel pnlSouth = new JPanel(new BorderLayout());
-	private int index = 0;
+	int img;
 	
 	public Q1 () {
 		this.setTitle("갤러리");
@@ -27,34 +27,38 @@ public class Q1 extends JFrame {
 		c.add(pnlSouth, BorderLayout.SOUTH);
 		c.add(imageLabel,BorderLayout.CENTER);
 		
-		btnLeft.addActionListener(new MyActionListener());
-		btnRight.addActionListener(new MyActionListener());
+		btnLeft.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				img --; 
+				img += image.length;	
+				img %= image.length; 
+				if(img == 0) {
+					btnLeft.setEnabled(false);
+					System.out.print("끝");
+				}
+				imageLabel.setIcon(image[img]); // 이미지 레이블에 이미지 변경
+				
+			}});
+		btnRight.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				img ++;
+				img %= image.length;  
+				if(img == 0) {
+					btnRight.setEnabled(false);
+					System.out.print("끝");
+				}
+				imageLabel.setIcon(image[img]); 
+				
+			}});
 		
 		this.setSize(300, 250);
 		this.setVisible(true);
 	}
-	
-	class MyActionListener implements ActionListener{
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			JButton jb = (JButton)e.getSource();
-			if(jb != btnLeft) {
-				if(index == 0)
-				index = image.length -1;
-				else
-			    index -= 1;
-
-			}else {
-				if (index == image.length -1)
-					index = 0; 
-				else
-					index += 1; 
-			}
-			imageLabel.setIcon(image[index]);
-
-		}
-	}
-				
+		
 	public static void main(String[] args) {
 		new Q1();
 
