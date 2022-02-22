@@ -1,3 +1,4 @@
+import java.util.Scanner;
 
 public class Hello {
 	
@@ -16,6 +17,13 @@ public class Hello {
 		System.out.println(a);
 		System.out.println("Hello");
 		System.out.println(s);
+	
+		 
+		    }
+		}
+		    }
+
+		
 	}
 
-}
+
