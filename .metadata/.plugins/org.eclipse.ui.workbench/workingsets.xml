@@ -158,6 +158,7 @@
 <item elementID="=BaekJoon" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=LibraryTest" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=slipped" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=JDBCTest" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 </workingSet>
 <workingSet editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1644225131835_7" label="Assignment" name="Assignment">
 <item elementID="=Assignment006_2" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
