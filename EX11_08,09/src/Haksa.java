@@ -1,6 +1,10 @@
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -32,6 +36,11 @@ public class Haksa extends JFrame{
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		this.setLayout(new FlowLayout());
+		
+		
+		
+		
+		
 		
 		JMenuBar mb = new JMenuBar();
 		JMenu menu1 = new JMenu("학생관리");
@@ -82,7 +91,34 @@ public class Haksa extends JFrame{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("목록");
+				try {
+					Class.forName("oracle.jdbc.driver.OracleDriver");
+					Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","ora_user","hong");
+					System.out.println("연결완료");
+					
+		Statement stmt = conn.createStatement();
+
+					ResultSet rs = stmt.executeQuery("select * from student");
+					
+					taList.setText(""); //목록 초기화
+					
+					taList.append("학번\t이름\t학과\n");
+					taList.append("====================================\n");
+					while(rs.next()) {
+						//System.out.print(rs.getString("id")+"\t");
+						//System.out.print(rs.getString("name")+"\t");
+						//System.out.println(rs.getString("dept"));
+						taList.append(rs.getString("id") + "\t");
+						taList.append(rs.getString("name") + "\t");
+						taList.append(rs.getString("dept")+ "\n");
+					}
+					rs.close();
+					stmt.close();
+					conn.close();
+					
+				}catch(Exception e1) {
+					e1.printStackTrace();
+				}
 				
 			}});
 		
