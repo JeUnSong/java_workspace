@@ -1,14 +1,21 @@
+import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 public class Haksa extends JFrame{
-
+	JTextField tfid = null;
+	JTextField tfpw = null;
+	JButton btnLogin = null;
+	
  JPanel panel;  // 메뉴별 화면이 출력되는 패널
  Haksa(){
   setTitle("학사관리시스템"); 
@@ -53,6 +60,25 @@ public class Haksa extends JFrame{
   
   panel=new JPanel();//panel생성
   add(panel);//프레임에 패널 추가
+  
+  Container c= getContentPane();
+  c.setLayout(null);
+  
+  tfid = new JTextField("아이디");
+  tfid.setLocation(280,350);
+  tfid.setSize(150,25);
+  c.add(tfid);
+  
+  tfpw = new JTextField("비밀번호");
+  tfpw.setLocation(280,380);
+  tfpw.setSize(150,25);
+  c.add(tfpw);
+  
+  btnLogin = new JButton("로그인");
+  btnLogin.setLocation(445,352);
+  btnLogin.setSize(75,50);
+  c.add(btnLogin);
+  
   
   setJMenuBar(bar);
   setSize(800,600);  

@@ -62,16 +62,17 @@ public class Student extends JPanel{
 					
 					model.setRowCount(0); // 목록 초기화
 					while(rs.next()) {
-						String[] row=new String[3];
+						String[] row=new String[4];
 						row[0]=rs.getString("id");
 						row[1]=rs.getString("name");
 						row[2]=rs.getString("dept");
-						//row[3]=rs.getString("address");
+						row[3]=rs.getString("address");
 						model.addRow(row);
 						
 						tfid.setText(rs.getString("id"));
 						tfName.setText(rs.getString("name"));
 						tfDepartment.setText(rs.getString("dept"));
+						tfAddress.setText(rs.getString("address"));
 					}
 					rs.close();
 					stmt.close();
@@ -114,8 +115,8 @@ public class Student extends JPanel{
 				    String dept_id=(String)model.getValueAt(table.getSelectedRow(), 2); // 학과
 				    tfDepartment.setText(dept_id);
 				    
-				    //String address=(String)model.getValueAt(table.getSelectedRow(), 3); // 주소
-				    //tfAddress.setText(address);
+				    String address=(String)model.getValueAt(table.getSelectedRow(), 3); // 주소
+				    tfAddress.setText(address);
 			}
 			
 			@Override
@@ -144,17 +145,17 @@ public class Student extends JPanel{
 					
 					Statement stmt = conn.createStatement();
 		
-					stmt.executeUpdate("insert into student values('"+tfid.getText()+"','"+tfName.getText()+"','"+tfDepartment.getText()+"')");
+					stmt.executeUpdate("insert into student values('"+tfid.getText()+"','"+tfName.getText()+"','"+tfDepartment.getText()+"','"+tfAddress.getText()+"')");
 
 					ResultSet rs = stmt.executeQuery("select * from student");
 					
 					model.setRowCount(0); // 목록 초기화
 					while(rs.next()) {
-						String[] row=new String[3];
+						String[] row=new String[4];
 						row[0]=rs.getString("id");
 						row[1]=rs.getString("name");
 						row[2]=rs.getString("dept");
-						//row[3]=rs.getString("address");
+						row[3]=rs.getString("address");
 						model.addRow(row);
 					}
 					rs.close();
@@ -184,11 +185,11 @@ public class Student extends JPanel{
 					
 					model.setRowCount(0); // 목록 초기화
 					while(rs.next()) {
-						String[] row=new String[3];
+						String[] row=new String[4];
 						row[0]=rs.getString("id");
 						row[1]=rs.getString("name");
 						row[2]=rs.getString("dept");
-						//row[3]=rs.getString("address");
+						row[3]=rs.getString("address");
 						model.addRow(row);
 					}
 					rs.close();
@@ -214,17 +215,17 @@ public class Student extends JPanel{
 					
 					Statement stmt = conn.createStatement();
 					
-					stmt.executeUpdate("update student set name='"+tfName.getText()+"',dept='"+tfDepartment.getText()+"' where id='"+tfid.getText()+"'");
+					stmt.executeUpdate("update student set name='"+tfName.getText()+"',dept='"+tfDepartment.getText()+"',address='"+tfAddress.getText()+"'where id='"+tfid.getText()+"'");
 
 					ResultSet rs = stmt.executeQuery("select * from student");
 					
 					model.setRowCount(0); // 목록 초기화
 					while(rs.next()) {
-						String[] row=new String[3];
+						String[] row=new String[4];
 						row[0]=rs.getString("id");
 						row[1]=rs.getString("name");
 						row[2]=rs.getString("dept");
-						//row[3]=rs.getString("address");
+						row[3]=rs.getString("address");
 						model.addRow(row);
 
 
@@ -260,11 +261,11 @@ public class Student extends JPanel{
 						
 						model.setRowCount(0); // 목록 초기화
 						while(rs.next()) {
-							String[] row=new String[3];
+							String[] row=new String[4];
 							row[0]=rs.getString("id");
 							row[1]=rs.getString("name");
 							row[2]=rs.getString("dept");
-							//row[3]=rs.getString("address");
+							row[3]=rs.getString("address");
 							model.addRow(row);
 						}
 						rs.close();
