@@ -79,6 +79,7 @@ public class Haksa extends JFrame{
   btnLogin.setSize(75,50);
   c.add(btnLogin);
   
+  //아이디 비밀번호 로그인 있으니 아무것도 실행안됨
   
   setJMenuBar(bar);
   setSize(800,600);  
