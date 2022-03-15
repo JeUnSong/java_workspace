@@ -21,7 +21,7 @@ import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 public class Student extends JPanel{
-	JTextField tfid = null;
+	JTextField tfId = null;
 	JTextField tfName = null;
 	JTextField tfDepartment = null;
 	JTextField tfAddress = null;
@@ -42,8 +42,8 @@ public class Student extends JPanel{
 		this.setLayout(new FlowLayout());
 		
 		this.add(new JLabel("학번 "));
-		this.tfid = new JTextField(15);
-		this.add(tfid);
+		this.tfId = new JTextField(15);
+		this.add(tfId);
 		
 		this.btnSearch = new JButton("검색");
 		this.add(this.btnSearch);
@@ -58,7 +58,7 @@ public class Student extends JPanel{
 					
 					Statement stmt = conn.createStatement();
 
-					ResultSet rs = stmt.executeQuery("select * from student where id='"+tfid.getText()+"'");
+					ResultSet rs = stmt.executeQuery("select * from student where id='"+tfId.getText()+"'");
 					
 					model.setRowCount(0); // 목록 초기화
 					while(rs.next()) {
@@ -69,7 +69,7 @@ public class Student extends JPanel{
 						row[3]=rs.getString("address");
 						model.addRow(row);
 						
-						tfid.setText(rs.getString("id"));
+						tfId.setText(rs.getString("id"));
 						tfName.setText(rs.getString("name"));
 						tfDepartment.setText(rs.getString("dept"));
 						tfAddress.setText(rs.getString("address"));
@@ -107,7 +107,7 @@ public class Student extends JPanel{
 				    model=(DefaultTableModel)table.getModel();//테이블의 모델 구하기
 				    
 				    String no=(String)model.getValueAt(table.getSelectedRow(), 0); // 학번
-			        tfid.setText(no);
+			        tfId.setText(no);
 			        
 	        	    String name=(String)model.getValueAt(table.getSelectedRow(), 1); // 이름
 				    tfName.setText(name);
@@ -145,7 +145,7 @@ public class Student extends JPanel{
 					
 					Statement stmt = conn.createStatement();
 		
-					stmt.executeUpdate("insert into student values('"+tfid.getText()+"','"+tfName.getText()+"','"+tfDepartment.getText()+"','"+tfAddress.getText()+"')");
+					stmt.executeUpdate("insert into student values('"+tfId.getText()+"','"+tfName.getText()+"','"+tfDepartment.getText()+"','"+tfAddress.getText()+"')");
 
 					ResultSet rs = stmt.executeQuery("select * from student");
 					
@@ -215,7 +215,7 @@ public class Student extends JPanel{
 					
 					Statement stmt = conn.createStatement();
 					
-					stmt.executeUpdate("update student set name='"+tfName.getText()+"',dept='"+tfDepartment.getText()+"',address='"+tfAddress.getText()+"'where id='"+tfid.getText()+"'");
+					stmt.executeUpdate("update student set name='"+tfName.getText()+"',dept='"+tfDepartment.getText()+"',address='"+tfAddress.getText()+"'where id='"+tfId.getText()+"'");
 
 					ResultSet rs = stmt.executeQuery("select * from student");
 					
@@ -255,7 +255,7 @@ public class Student extends JPanel{
 						
 						Statement stmt = conn.createStatement();
 						
-						stmt.executeUpdate("delete from student where id='"+tfid.getText()+"'");
+						stmt.executeUpdate("delete from student where id='"+tfId.getText()+"'");
 
 						ResultSet rs = stmt.executeQuery("select * from student");
 						
