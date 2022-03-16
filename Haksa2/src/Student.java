@@ -1,5 +1,6 @@
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -26,18 +27,20 @@ public class Student extends JPanel{
 	JTextField tfDepartment = null;
 	JTextField tfAddress = null;
 	JTextArea taList = null;
-	JButton btnSave = null;   // insert - > Create
-	JButton btnList = null;   // select - > Read
-	JButton btnModify = null; // update - > Update
-	JButton btnRemove = null; // delete - > Delete
+	RoundedButton btnSave = null;   // insert - > Create
+	RoundedButton btnList = null;   // select - > Read
+	RoundedButton btnModify = null; // update - > Update
+	RoundedButton btnRemove = null; // delete - > Delete
 	                          // DB 용어 CRUD
-	JButton btnSearch=null;
+	RoundedButton btnSearch=null;
 	
 	DefaultTableModel model=null; // 테이블에 들어가는 데이터
 	JTable table=null;            // 테이블
 	
 	JMenuItem menuItem1 = null; // 학생정보
 	
+	
+	Font font = new Font("함초롬바탕", Font.PLAIN, 10);
 	public Student() {
 		this.setLayout(new FlowLayout());
 		
@@ -45,7 +48,7 @@ public class Student extends JPanel{
 		this.tfId = new JTextField(15);
 		this.add(tfId);
 		
-		this.btnSearch = new JButton("검색");
+		this.btnSearch = new RoundedButton("검색");
 		this.add(this.btnSearch);
 		this.btnSearch.addActionListener(new ActionListener() {
 
@@ -132,7 +135,7 @@ public class Student extends JPanel{
 		 JScrollPane sp=new JScrollPane(this.table);
 		 this.add(sp);
 		 
-		this.btnSave = new JButton("등록");
+		this.btnSave = new RoundedButton("등록");
 		this.add(this.btnSave);
 		this.btnSave.addActionListener(new ActionListener() {
 
@@ -167,8 +170,8 @@ public class Student extends JPanel{
 				}
 				
 			}});
-		
-		this.btnList = new JButton("목록");
+		// 버튼 이미지 변경필요
+		this.btnList = new RoundedButton("목록");
 		this.add(this.btnList);
 		this.btnList.addActionListener(new ActionListener() {
 
@@ -201,8 +204,8 @@ public class Student extends JPanel{
 				}
 				
 			}});
-		
-		this.btnModify = new JButton("수정");
+		// 버튼 이미지 변경필요
+		this.btnModify = new RoundedButton("수정");
 		this.add(this.btnModify);
 		this.btnModify.addActionListener(new ActionListener() {
 
@@ -239,8 +242,8 @@ public class Student extends JPanel{
 				}
 				
 			}});
-				
-		this.btnRemove = new JButton("삭제");
+		// 버튼 이미지 변경필요
+		this.btnRemove = new RoundedButton("삭제");
 		this.add(this.btnRemove);
 		this.btnRemove.addActionListener(new ActionListener() {
 
