@@ -1,27 +1,46 @@
+import java.awt.Container;
+import java.awt.Font;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 public class Haksa extends JFrame{
 
+Font font = new Font("함초롬바탕", Font.PLAIN, 12);	
  JPanel panel;  // 메뉴별 화면이 출력되는 패널
  Haksa(){
   setTitle("학사관리시스템"); 
   setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//x버튼 누르면 프로그램 종료
   
+  Toolkit toolkit = Toolkit.getDefaultToolkit();
+  Image img = toolkit.getImage("images/icon2.png");
+  setIconImage(img);
+  
   JMenuBar bar=new JMenuBar();
   
+  
   JMenu m_student=new JMenu("학생관리");//File메뉴
+  m_student.setFont(font);
   bar.add(m_student);
   JMenu m_book=new JMenu("도서관리");//Edit메뉴
+  m_book.setFont(font);
   bar.add(m_book);
   
   JMenuItem mi_list=new JMenuItem("학생정보");
+  mi_list.setFont(font);
   m_student.add(mi_list);
   
   mi_list.addActionListener(new ActionListener(){
@@ -37,6 +56,7 @@ public class Haksa extends JFrame{
    }});
    
   JMenuItem mi_bookRent=new JMenuItem("대출목록");
+  mi_bookRent.setFont(font);
   m_book.add(mi_bookRent);
   
   mi_bookRent.addActionListener(new ActionListener(){
@@ -51,9 +71,11 @@ public class Haksa extends JFrame{
     
    }});
   
+  
   panel=new JPanel();//panel생성
   add(panel);//프레임에 패널 추가
   
+
   setJMenuBar(bar);
   setSize(800,600);  
   setVisible(true);

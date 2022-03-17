@@ -1,5 +1,6 @@
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -21,31 +22,33 @@ import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 public class Student extends JPanel{
-	JTextField tfid = null;
+	JTextField tfId = null;
 	JTextField tfName = null;
 	JTextField tfDepartment = null;
 	JTextField tfAddress = null;
 	JTextArea taList = null;
-	JButton btnSave = null;   // insert - > Create
-	JButton btnList = null;   // select - > Read
-	JButton btnModify = null; // update - > Update
-	JButton btnRemove = null; // delete - > Delete
+	RoundedButton btnSave = null;   // insert - > Create
+	RoundedButton btnList = null;   // select - > Read
+	RoundedButton btnModify = null; // update - > Update
+	RoundedButton btnRemove = null; // delete - > Delete
 	                          // DB 용어 CRUD
-	JButton btnSearch=null;
+	RoundedButton btnSearch=null;
 	
 	DefaultTableModel model=null; // 테이블에 들어가는 데이터
 	JTable table=null;            // 테이블
 	
 	JMenuItem menuItem1 = null; // 학생정보
 	
+	
+	Font font = new Font("함초롬바탕", Font.PLAIN, 10);
 	public Student() {
 		this.setLayout(new FlowLayout());
 		
 		this.add(new JLabel("학번 "));
-		this.tfid = new JTextField(15);
-		this.add(tfid);
+		this.tfId = new JTextField(15);
+		this.add(tfId);
 		
-		this.btnSearch = new JButton("검색");
+		this.btnSearch = new RoundedButton("검색");
 		this.add(this.btnSearch);
 		this.btnSearch.addActionListener(new ActionListener() {
 
@@ -58,20 +61,21 @@ public class Student extends JPanel{
 					
 					Statement stmt = conn.createStatement();
 
-					ResultSet rs = stmt.executeQuery("select * from student where id='"+tfid.getText()+"'");
+					ResultSet rs = stmt.executeQuery("select * from student where id='"+tfId.getText()+"'");
 					
 					model.setRowCount(0); // 목록 초기화
 					while(rs.next()) {
-						String[] row=new String[3];
+						String[] row=new String[4];
 						row[0]=rs.getString("id");
 						row[1]=rs.getString("name");
 						row[2]=rs.getString("dept");
-						//row[3]=rs.getString("address");
+						row[3]=rs.getString("address");
 						model.addRow(row);
 						
-						tfid.setText(rs.getString("id"));
+						tfId.setText(rs.getString("id"));
 						tfName.setText(rs.getString("name"));
 						tfDepartment.setText(rs.getString("dept"));
+						tfAddress.setText(rs.getString("address"));
 					}
 					rs.close();
 					stmt.close();
@@ -106,7 +110,7 @@ public class Student extends JPanel{
 				    model=(DefaultTableModel)table.getModel();//테이블의 모델 구하기
 				    
 				    String no=(String)model.getValueAt(table.getSelectedRow(), 0); // 학번
-			        tfid.setText(no);
+			        tfId.setText(no);
 			        
 	        	    String name=(String)model.getValueAt(table.getSelectedRow(), 1); // 이름
 				    tfName.setText(name);
@@ -114,8 +118,8 @@ public class Student extends JPanel{
 				    String dept_id=(String)model.getValueAt(table.getSelectedRow(), 2); // 학과
 				    tfDepartment.setText(dept_id);
 				    
-				    //String address=(String)model.getValueAt(table.getSelectedRow(), 3); // 주소
-				    //tfAddress.setText(address);
+				    String address=(String)model.getValueAt(table.getSelectedRow(), 3); // 주소
+				    tfAddress.setText(address);
 			}
 			
 			@Override
@@ -131,7 +135,7 @@ public class Student extends JPanel{
 		 JScrollPane sp=new JScrollPane(this.table);
 		 this.add(sp);
 		 
-		this.btnSave = new JButton("등록");
+		this.btnSave = new RoundedButton("등록");
 		this.add(this.btnSave);
 		this.btnSave.addActionListener(new ActionListener() {
 
@@ -144,17 +148,17 @@ public class Student extends JPanel{
 					
 					Statement stmt = conn.createStatement();
 		
-					stmt.executeUpdate("insert into student values('"+tfid.getText()+"','"+tfName.getText()+"','"+tfDepartment.getText()+"')");
+					stmt.executeUpdate("insert into student values('"+tfId.getText()+"','"+tfName.getText()+"','"+tfDepartment.getText()+"','"+tfAddress.getText()+"')");
 
 					ResultSet rs = stmt.executeQuery("select * from student");
 					
 					model.setRowCount(0); // 목록 초기화
 					while(rs.next()) {
-						String[] row=new String[3];
+						String[] row=new String[4];
 						row[0]=rs.getString("id");
 						row[1]=rs.getString("name");
 						row[2]=rs.getString("dept");
-						//row[3]=rs.getString("address");
+						row[3]=rs.getString("address");
 						model.addRow(row);
 					}
 					rs.close();
@@ -166,8 +170,8 @@ public class Student extends JPanel{
 				}
 				
 			}});
-		
-		this.btnList = new JButton("목록");
+		// 버튼 이미지 변경필요
+		this.btnList = new RoundedButton("목록");
 		this.add(this.btnList);
 		this.btnList.addActionListener(new ActionListener() {
 
@@ -184,11 +188,11 @@ public class Student extends JPanel{
 					
 					model.setRowCount(0); // 목록 초기화
 					while(rs.next()) {
-						String[] row=new String[3];
+						String[] row=new String[4];
 						row[0]=rs.getString("id");
 						row[1]=rs.getString("name");
 						row[2]=rs.getString("dept");
-						//row[3]=rs.getString("address");
+						row[3]=rs.getString("address");
 						model.addRow(row);
 					}
 					rs.close();
@@ -200,8 +204,8 @@ public class Student extends JPanel{
 				}
 				
 			}});
-		
-		this.btnModify = new JButton("수정");
+		// 버튼 이미지 변경필요
+		this.btnModify = new RoundedButton("수정");
 		this.add(this.btnModify);
 		this.btnModify.addActionListener(new ActionListener() {
 
@@ -214,17 +218,17 @@ public class Student extends JPanel{
 					
 					Statement stmt = conn.createStatement();
 					
-					stmt.executeUpdate("update student set name='"+tfName.getText()+"',dept='"+tfDepartment.getText()+"' where id='"+tfid.getText()+"'");
+					stmt.executeUpdate("update student set name='"+tfName.getText()+"',dept='"+tfDepartment.getText()+"',address='"+tfAddress.getText()+"'where id='"+tfId.getText()+"'");
 
 					ResultSet rs = stmt.executeQuery("select * from student");
 					
 					model.setRowCount(0); // 목록 초기화
 					while(rs.next()) {
-						String[] row=new String[3];
+						String[] row=new String[4];
 						row[0]=rs.getString("id");
 						row[1]=rs.getString("name");
 						row[2]=rs.getString("dept");
-						//row[3]=rs.getString("address");
+						row[3]=rs.getString("address");
 						model.addRow(row);
 
 
@@ -238,8 +242,8 @@ public class Student extends JPanel{
 				}
 				
 			}});
-				
-		this.btnRemove = new JButton("삭제");
+		// 버튼 이미지 변경필요
+		this.btnRemove = new RoundedButton("삭제");
 		this.add(this.btnRemove);
 		this.btnRemove.addActionListener(new ActionListener() {
 
@@ -254,17 +258,17 @@ public class Student extends JPanel{
 						
 						Statement stmt = conn.createStatement();
 						
-						stmt.executeUpdate("delete from student where id='"+tfid.getText()+"'");
+						stmt.executeUpdate("delete from student where id='"+tfId.getText()+"'");
 
 						ResultSet rs = stmt.executeQuery("select * from student");
 						
 						model.setRowCount(0); // 목록 초기화
 						while(rs.next()) {
-							String[] row=new String[3];
+							String[] row=new String[4];
 							row[0]=rs.getString("id");
 							row[1]=rs.getString("name");
 							row[2]=rs.getString("dept");
-							//row[3]=rs.getString("address");
+							row[3]=rs.getString("address");
 							model.addRow(row);
 						}
 						rs.close();
