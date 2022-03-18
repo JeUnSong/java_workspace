@@ -1,3 +1,5 @@
+// 그림
+
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Font;
@@ -30,6 +32,7 @@ public class Login extends JFrame{
 	
 	JLabel jlId = null;
 	JLabel jlPw = null;
+	JLabel jllogo = null;
 	
 	Font font = new Font("함초롬바탕", Font.BOLD, 12);
 	
@@ -48,24 +51,24 @@ JPanel panel2;
 		  setLayout(null);
 		  
 		  this.jlId = new JLabel("아이디 ");
-		  this.jlId.setLocation(185,350);
+		  this.jlId.setLocation(195,350);
 		  this.jlId.setSize(150,100);
 		  this.jlId.setFont(font);
 		  this.add(jlId);
 		  
 		  this.tfId = new JTextField();
-		  this.tfId.setLocation(240,390);
+		  this.tfId.setLocation(250,390);
 		  this.tfId.setSize(150,25);
 		  this.add(tfId);
 		  
 		  this.jlPw = new JLabel("비밀번호 ");
-		  this.jlPw.setLocation(175,380);
+		  this.jlPw.setLocation(185,380);
 		  this.jlPw.setSize(100,100);
 		  this.jlPw.setFont(font);
 		  this.add(jlPw);
 		  
 		  this.tfPw = new JPasswordField();
-		  this.tfPw.setLocation(240,420);
+		  this.tfPw.setLocation(250,420);
 		  this.tfPw.setSize(150,25);
 		  this.add(tfPw);
 		  this.tfPw.setEchoChar('*');
@@ -74,7 +77,7 @@ JPanel panel2;
 		  
 		  this.btnLogin = new RoundedButton("로그인");
 		  this.btnLogin.setFont(font);
-		  this.btnLogin.setLocation(405,392);
+		  this.btnLogin.setLocation(415,392);
 		  this.btnLogin.setSize(75,50);
 		  this.btnLogin.addActionListener(new ActionListener() {
 
@@ -91,7 +94,7 @@ JPanel panel2;
 				
 				
 				
-				if(tfId.getText().equals("zzangjh5") && pw.equals("1q2w3e4r!")) {
+				if(tfId.getText().equals("1") && pw.equals("1")) {
 						JOptionPane.showMessageDialog(null, "환영합니다.", "로그인 완료", JOptionPane.INFORMATION_MESSAGE);
 						dispose(); // 이전창 닫기
 						panel2.removeAll(); //모든컴포넌트 삭제
@@ -128,16 +131,17 @@ JPanel panel2;
 		  
 //		  this.add(btnSign);
 		  
+		  this.jllogo = new JLabel("Welcome to Management!");
+		  this.jllogo.setLocation(260,270);
+		  this.jllogo.setSize(370,550);
+		  this.jllogo.setFont(font);
+		  this.add(jllogo);
+		  
 		  panel2=new JPanel();//panel생성
 		  this.add(panel2);//프레임에 패널 추가
 		  
 		 
 
-
-
-		
-		  
-		  
 		  setSize(700,600);  
 		  setVisible(true);
 		

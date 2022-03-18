@@ -18,7 +18,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class Haksa extends JFrame{
-
+JLabel jllogo = null;
 Font font = new Font("함초롬바탕", Font.PLAIN, 12);	
  JPanel panel;  // 메뉴별 화면이 출력되는 패널
  Haksa(){
@@ -31,6 +31,23 @@ Font font = new Font("함초롬바탕", Font.PLAIN, 12);
   
   JMenuBar bar=new JMenuBar();
   
+  
+  JMenu m_main=new JMenu("    홈    ");//File메뉴
+  m_main.setFont(font);
+  bar.add(m_main);
+  JMenuItem m_mainlist=new JMenuItem("홈으로");
+  m_mainlist.setFont(font);
+  m_main.add(m_mainlist);
+  
+  m_mainlist.addActionListener(new ActionListener() {
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		dispose();
+	    panel.add(new Haksa()); //화면 생성. <<< 달력 만들어서 붙히기
+	    panel.setLayout(null);//레이아웃적용안함
+		
+	}});
   
   JMenu m_student=new JMenu("학생관리");//File메뉴
   m_student.setFont(font);
@@ -71,6 +88,11 @@ Font font = new Font("함초롬바탕", Font.PLAIN, 12);
     
    }});
   
+  this.jllogo = new JLabel("Welcome to Management!");
+  this.jllogo.setLocation(310,245);
+  this.jllogo.setSize(360,550);
+  this.jllogo.setFont(font);
+  this.add(jllogo);
   
   panel=new JPanel();//panel생성
   add(panel);//프레임에 패널 추가

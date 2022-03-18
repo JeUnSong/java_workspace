@@ -1,3 +1,5 @@
+//오른쪽에 뭐 들어갈지 확인
+
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
@@ -27,6 +29,13 @@ public class Student extends JPanel{
 	JTextField tfDepartment = null;
 	JTextField tfAddress = null;
 	JTextArea taList = null;
+	
+	JLabel jlId = null;
+	JLabel jlName = null;
+	JLabel jlDepartment = null;
+	JLabel jlAddress = null;
+	JLabel mmm = null;
+	
 	RoundedButton btnSave = null;   // insert - > Create
 	RoundedButton btnList = null;   // select - > Read
 	RoundedButton btnModify = null; // update - > Update
@@ -40,15 +49,20 @@ public class Student extends JPanel{
 	JMenuItem menuItem1 = null; // 학생정보
 	
 	
-	Font font = new Font("함초롬바탕", Font.PLAIN, 10);
+	Font font = new Font("함초롬바탕", Font.BOLD, 10);
 	public Student() {
 		this.setLayout(new FlowLayout());
 		
-		this.add(new JLabel("학번 "));
+		
+		this.jlId = new JLabel("  학   번");
+		this.jlId.setFont(font);
+		this.add(jlId);
+		
 		this.tfId = new JTextField(15);
 		this.add(tfId);
 		
-		this.btnSearch = new RoundedButton("검색");
+		this.btnSearch = new RoundedButton("검 색");
+		this.btnSearch.setFont(font);
 		this.add(this.btnSearch);
 		this.btnSearch.addActionListener(new ActionListener() {
 
@@ -87,15 +101,21 @@ public class Student extends JPanel{
 				
 			}});
 
-		this.add(new JLabel("이름 "));
+		this.jlName = new JLabel("이   름");
+		this.jlName.setFont(font);
+		this.add(jlName);
 		this.tfName = new JTextField(20);
 		this.add(tfName);
 		
-		this.add(new JLabel("학과 "));
+		this.jlDepartment = new JLabel("학   과");
+		this.jlDepartment.setFont(font);
+		this.add(jlDepartment);
 		this.tfDepartment = new JTextField(20);
 		this.add(tfDepartment);
 		
-		this.add(new JLabel("주소 "));
+		this.jlAddress = new JLabel("주    소");
+		this.jlAddress.setFont(font);
+		this.add(jlAddress);
 		this.tfAddress = new JTextField(20);
 		this.add(tfAddress);
 		
@@ -135,7 +155,8 @@ public class Student extends JPanel{
 		 JScrollPane sp=new JScrollPane(this.table);
 		 this.add(sp);
 		 
-		this.btnSave = new RoundedButton("등록");
+		this.btnSave = new RoundedButton("등 록");
+		this.btnSave.setFont(font);
 		this.add(this.btnSave);
 		this.btnSave.addActionListener(new ActionListener() {
 
@@ -171,7 +192,8 @@ public class Student extends JPanel{
 				
 			}});
 		// 버튼 이미지 변경필요
-		this.btnList = new RoundedButton("목록");
+		this.btnList = new RoundedButton("목 록");
+		this.btnList.setFont(font);
 		this.add(this.btnList);
 		this.btnList.addActionListener(new ActionListener() {
 
@@ -205,7 +227,8 @@ public class Student extends JPanel{
 				
 			}});
 		// 버튼 이미지 변경필요
-		this.btnModify = new RoundedButton("수정");
+		this.btnModify = new RoundedButton("수 정");
+		this.btnModify.setFont(font);
 		this.add(this.btnModify);
 		this.btnModify.addActionListener(new ActionListener() {
 
@@ -243,7 +266,8 @@ public class Student extends JPanel{
 				
 			}});
 		// 버튼 이미지 변경필요
-		this.btnRemove = new RoundedButton("삭제");
+		this.btnRemove = new RoundedButton("삭 제");
+		this.btnRemove.setFont(font);
 		this.add(this.btnRemove);
 		this.btnRemove.addActionListener(new ActionListener() {
 

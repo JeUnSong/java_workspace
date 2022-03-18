@@ -1,3 +1,5 @@
+// 하단 우측에 뭐넣을지 생각해보기
+
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
