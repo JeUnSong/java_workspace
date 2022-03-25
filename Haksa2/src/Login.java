@@ -30,10 +30,12 @@ public class Login extends JFrame{
 	JButton btnSign = null;
 	JLabel hh = null;
 
+	JLabel jltitle = null;
 	JLabel jllogo = null;
 	JLabel jlma = null;
 	
 	Font font = new Font("함초롬바탕", Font.BOLD, 12);
+	Font font2 = new Font("함초롬바탕", Font.BOLD, 30);
 	Color bColor =new Color(223,223,223);
 
 DefaultTableModel model=null;
@@ -50,11 +52,17 @@ JPanel panel2;
 		  
 		  setLayout(null);
 		  
+		  
+		  this.jllogo = new JLabel("학사 관리");
+		  this.jllogo.setLocation(175,150);
+		  this.jllogo.setSize(150,50);
+		  this.jllogo.setFont(font2);
+		  this.add(jllogo);
 
 		  ImageIcon mImg = new ImageIcon("images/hh.png");
 		  this.hh = new JLabel(mImg);
-		  this.hh.setLocation(190,70);
-		  this.hh.setSize(100,100);
+		  this.hh.setLocation(160,30);
+		  this.hh.setSize(170,170);
 		  this.add(hh);
 		  
 		  this.tfId = new JTextField();

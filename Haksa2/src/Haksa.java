@@ -21,7 +21,7 @@ import javax.swing.JTextField;
 public class Haksa extends JFrame{
 JLabel jllogo = null;
 Font font = new Font("함초롬바탕", Font.PLAIN, 12);	
- JPanel panel;  // 메뉴별 화면이 출력되는 패널
+JPanel panel;  // 메뉴별 화면이 출력되는 패널
  
  Haksa(){
   setTitle("학사관리시스템"); 
@@ -33,38 +33,6 @@ Font font = new Font("함초롬바탕", Font.PLAIN, 12);
   
   JMenuBar bar=new JMenuBar();
   
-  
-//  this.addWindowListener(new WindowListener () {
-//
-//	@Override
-//	public void windowOpened(WindowEvent e) {
-//		panel.removeAll(); //모든컴포넌트 삭제
-//	    panel.revalidate(); //다시 활성화
-//	    panel.repaint();    //다시 그리기
-//	    panel.add(new CalendarMade()); //화면 생성.
-//	    panel.setLayout(null);//레이아웃적용안함
-//		
-//	}
-//
-//	@Override
-//	public void windowClosing(WindowEvent e) {}
-//
-//	@Override
-//	public void windowClosed(WindowEvent e) {}
-//
-//	@Override
-//	public void windowIconified(WindowEvent e) {}
-//
-//	@Override
-//	public void windowDeiconified(WindowEvent e) {}
-//
-//	@Override
-//	public void windowActivated(WindowEvent e) {}
-//
-//	@Override
-//	public void windowDeactivated(WindowEvent e) {}});
-  
-  
   JMenu m_main=new JMenu("    홈    ");//File메뉴
   m_main.setFont(font);
   bar.add(m_main);
@@ -72,17 +40,17 @@ Font font = new Font("함초롬바탕", Font.PLAIN, 12);
   m_mainlist.setFont(font);
   m_main.add(m_mainlist);
   
-//  m_mainlist.addActionListener(new ActionListener() {
-//
-//	@Override
-//	public void actionPerformed(ActionEvent e) {
-//		panel.removeAll(); //모든컴포넌트 삭제
-//	    panel.revalidate(); //다시 활성화
-//	    panel.repaint();    //다시 그리기
-//	    panel.add(new CalendarMade()); //화면 생성.
-//	    panel.setLayout(null);//레이아웃적용안함
-//		
-//	}});
+  m_mainlist.addActionListener(new ActionListener() {
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		panel.removeAll(); //모든컴포넌트 삭제
+	    panel.revalidate(); //다시 활성화
+	    panel.repaint();    //다시 그리기
+	    panel.add(new Home()); //화면 생성.
+	    panel.setLayout(null);//레이아웃적용안함
+		
+	}});
   
   JMenu m_student=new JMenu("학생관리");//File메뉴
   m_student.setFont(font);
@@ -123,21 +91,18 @@ Font font = new Font("함초롬바탕", Font.PLAIN, 12);
     
    }});
   
-  
-  
-  
-  this.jllogo = new JLabel("Welcome to Management!");
-  this.jllogo.setLocation(165,195);
-  this.jllogo.setSize(360,550);
-  this.jllogo.setFont(font);
-  this.add(jllogo);
+	this.jllogo = new JLabel("Welcome to Management!");
+	this.jllogo.setLocation(80,195);
+	this.jllogo.setSize(360,550);
+	this.jllogo.setFont(font);
+	this.add(jllogo);
   
   panel=new JPanel();//panel생성
   add(panel);//프레임에 패널 추가
-  
+
   
   setJMenuBar(bar);
-  setSize(495,550);  
+  setSize(315,550);  
   setVisible(true);
  }
  public static void main(String[] args) {

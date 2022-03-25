@@ -84,7 +84,7 @@ public class BookRent extends JPanel {
 	    table.setPreferredScrollableViewportSize(new Dimension(470,200));
 	    add(table);
 	    JScrollPane sp=new JScrollPane(table);
-	    sp.setBounds(10, 40, 460, 250);
+	    sp.setBounds(10, 40, 280, 360);
 	    add(sp);  
 	    
 	    
